@@ -1,0 +1,33 @@
+Index.HTML ---> ♥ DOM real
+
+Index.js ----> ♥ DOM virtual
+               ♥ Rederiza a App.jsx desde el root
+
+Index.CSS ----> ♥ Da estilo al DOM
+
+App.js ------> ♥ Renderiza a: Cards, SearchBar y characters, les pasa props
+               ♥ No necesita a Card.jsx por que toma las props desde Cards.jsx
+               ♥ Renderiza a SearchBar pasando onSearch por props.
+               ♥ Recibe estilo desde App.css
+
+App.css -----> ♥ Le da estilo a App.js
+
+data.js -----> ♥ Contiene a los personajes
+               ♥ Le da a Card.jsx las props.
+
+Card.jsx ----> ♥ Representa a una tarjeta
+               ♥ Recibe de data.js la imagen y las caracteristicas de cada personaje.
+               {id, name, status, species, gender, origin, image, f=onClose}
+
+
+Cards.jsx -----> ♥ Es el contenedor de todas la cartas.
+                 ♥ importa a Card.jsx
+                 ♥ Recibe los characters de App.js  importados desde data.js
+                 ♥ De cada character crea una Card nueva
+
+SearchBar.jsx ----> ♥ Toma de App.js la funcion onSearch que le pasa por props
+
+
+
+
+

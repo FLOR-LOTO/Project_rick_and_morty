@@ -1,0 +1,13 @@
+.App {
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   max-height: 100vh;
+   width: 100%;
+   height: auto;
+   text-align: center;
+   background-image: url('../img/DiseñoDeFondo1.png'); 
+   background-position: center;
+   background-size: cover;
+   background-repeat: repeat;
+}
