@@ -87,10 +87,19 @@ function App() {
             window.alert('¡Este personaje ya se encuentra en la lista!');
          }
       })
+   };
+
+const getContainerClass = () => {
+   if (pathname === '/') {
+      return 'backgroundLogin';
+   } else {
+      return 'backgroundDefault';
    }
+   };
+
 
    return (
-      <div className='App'>
+      <div className={`App ${getContainerClass()}`}>
          {pathname !== "/" &&  // si pathname es distinta a / entonces se muestra el nav
          <Nav onSearch={onSearch} addRandomCharacter={addRandomCharacter} />
          }

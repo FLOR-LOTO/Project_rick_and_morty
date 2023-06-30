@@ -11,3 +11,13 @@
    background-size: cover;
    background-repeat: repeat;
 }
+
+.backgroundLogin {
+   background-image: url('../img/DiseñoCaras2.png');
+}
+
+
+.backgroundDefault {
+   background-image: url('../img/DiseñoDeFondo1.png');
+}
+

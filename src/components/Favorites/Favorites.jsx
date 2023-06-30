@@ -25,6 +25,7 @@ const handleFilter = (event) => {
     return (
     <div>
         <h1>My Favorites</h1>
+        <div className={style.fixedContainer} >
         <select className={style.btnOrder} onChange= {handleOrder}>
             <option value="A">Ascendente</option>
             <option value="D">Descendente</option>
@@ -35,7 +36,8 @@ const handleFilter = (event) => {
             <option value="Genderless">Genderless</option>
             <option value="unknown">unknown</option>
         </select>
-        {
+        </div>
+        { 
             myFavorites?.map (character => {
                 return (
                     <Card 
