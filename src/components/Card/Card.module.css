@@ -5,12 +5,12 @@
     padding: 8px;
     margin: 20px;
     border-radius: 0.8em;
-    background-color: rgba(143, 144, 143, 0.3);
+    background-color: #23263A;
 }
 
 .btnClose {
     text-align: center;
-    background-color:bisque;
+    background-color:white;
     color:#46f666;
     font-weight: 700;
     float: right;
@@ -47,6 +47,7 @@
     position: relative;
     display: flex;
     border-radius: 0.8em;
+    border:1px solid #46f666;
     width: 100%;
     height: auto;
     margin-top: 10px;
@@ -54,7 +55,7 @@
 }
 
 #imagen:hover {
-    transform: scale(1.01);
+    transform: scale(1.02);
 }
 
 #id {
@@ -83,65 +84,3 @@ h2{
     font-size:medium;
 }
 
-#origin {
-    font-size:0.65em;
-    color:bisque;
-    font-family: Chakra Petch;
-    padding: 8px;
-    text-shadow: 1px 1px 2px black, 0 0 1em rgb(245, 85, 22), 0 0 0.2em rgb(255, 51, 0);
-}
-
-.littleCards {
-    padding-top: 1px;
-}
-#descriptionOne {
-    display: block;
-    border-radius: 8px;
-    width: 100%;
-    height: auto;
-    margin-top: 6px;
-    font-size: 12px;
-    font-family: Chakra Petch;
-    background-color: #47f667;
-    color:bisque;
-    text-shadow: 1px 1px 2px black, 0 0 1em rgb(245, 85, 22), 0 0 0.2em rgb(255, 51, 0);
-}
-
-#descriptionTwo {
-    display: block;
-    border-radius: 8px;
-    width: 100%;
-    height: auto;
-    margin-top: 6px;
-    font-size: 12px;
-    font-family: Chakra Petch;
-    background-color: #E54B73;
-    color:bisque;
-    text-shadow: 1px 1px 2px black, 0 0 1em rgb(245, 85, 22), 0 0 0.2em rgb(255, 51, 0);
-}
-
-#descriptionThree {
-    display: block;
-    border-radius: 8px;
-    width: 100%;
-    height: auto;
-    margin-top: 6px;
-    font-size: 12px;
-    font-family: Chakra Petch;
-    background-color: #E54B73;
-    color:bisque;
-    text-shadow: 1px 1px 2px black, 0 0 1em rgb(245, 85, 22), 0 0 0.2em rgb(255, 51, 0);
-}
-
-#descriptionFour{
-    display: block;
-    border-radius: 8px;
-    width: 100%;
-    height: auto;
-    margin-top: 6px;
-    font-size: 12px;
-    font-family: Chakra Petch;
-    background-color: #E54B73;
-    color:bisque;
-    text-shadow: 1px 1px 2px black, 0 0 1em rgb(245, 85, 22), 0 0 0.2em rgb(255, 51, 0);
-}
