@@ -12,7 +12,6 @@ const SearchBar = ({onSearch}) => {
       <div className= {style.navBar}>
          <input id= {style.input} type='Search' value= {character} onChange= {handleChange}/>
          <button id={style.buttonSearch} onClick={() =>onSearch(character)}>Agregar</button>
-         <h1>Project Rick and Morty</h1>
       </div>
    );
 }

@@ -2,16 +2,13 @@ import SearchBar from '../SearchBar/SearchBar'
 import { Link } from "react-router-dom";
 import style from "./Nav.module.css"
 
-const Nav = ({onSearch, addRandomCharacter}) => {
-    const handleAddRandomCharacter = () => {
-        addRandomCharacter();
-    };
+const Nav = ({onSearch}) => {  //({onSearch, addRandomCharacter})
+    // const handleAddRandomCharacter = () => {
+    //     addRandomCharacter();
+    // };
     return (
         <div className= {style.container}>
             <SearchBar onSearch={onSearch} />
-            <div>
-            <button className={style.btnRandom} onClick={handleAddRandomCharacter}>Add Random</button>
-            </div>
             <div >
             <Link to= "/home">
                 <button className={style.btn} >HOME</button>
@@ -29,5 +26,9 @@ const Nav = ({onSearch, addRandomCharacter}) => {
         </div>
     );
 }
+
+//<div>
+//<button className={style.btnRandom} onClick={handleAddRandomCharacter}>Add Random</button>
+//</div> */}
 
 export default Nav;

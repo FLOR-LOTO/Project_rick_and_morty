@@ -28,7 +28,7 @@ function Detail() {
                 {character.species && <h2>Specie: {character.species}</h2>}
                 {character.status && <h2>Status: {character.status}</h2>}
                 {character.gender && <h2>Gender: {character.gender}</h2>}
-                {character.origin.name && <h2>Origin: {character.origin.name}</h2>}
+                {character.origin && <h2>Origin: {character.origin.name}</h2>}
             </div>
         )}
     </div>

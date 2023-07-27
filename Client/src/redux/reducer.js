@@ -1,52 +1,38 @@
-import {ADD_FAV, REMOVE_FAV, FILTER, ORDER} from "./actions.types";
-
 const initialState = {
     myFavorites: [],
     allCharacters: [],
+};
+
+const rootReducer = (state = initialState, { type, payload }) => {
+switch (type) {
+    case 'ADD_FAV':
+    return { ...state, myFavorites: payload, allCharacters: payload };
+
+    case 'REMOVE_FAV':
+    return { ...state, myFavorites: payload, allCharacters: payload };
+
+    case 'FILTER':
+    let copy2 = [...state.allCharacters];
+    let filterGender = copy2.filter((character) => {
+        return character.gender === payload;
+    });
+    return {
+        ...state,
+        myFavorites: filterGender,
+    };
+
+    case 'ORDER':
+    let copy3 = [...state.allCharacters];
+    return {
+        ...state,
+        myFavorites: copy3.sort((a, b) => {
+        return payload === 'A' ? a.id - b.id : b.id - a.id;
+        }),
+    };
+
+    default:
+    return { ...state };
 }
+};
 
-const reducer = (state= initialState, action) => {
-    switch (action.type) {
-        case ADD_FAV:
-            return {
-                ...state,
-                myFavorites: [...state.allCharacters, action.payload],
-                allCharacters: [...state.allCharacters, action.payload]
-            }
-
-        case REMOVE_FAV:
-            let deleteCharacter = state.myFavorites.filter (character => character.id !== Number (action.payload)) //guardamos el eliminado
-            return {
-                ...state,
-                myFavorites: deleteCharacter
-            }
-        
-        case FILTER:
-            const filterCharacters = state.allCharacters.filter(character => character.gender === action.payload);
-            return {
-                ...state,
-                myFavorites: [...filterCharacters]
-            }
-
-        case ORDER:
-            const sortCharacters = [...state.allCharacters];
-            if (action.payload === 'A') {
-            sortCharacters.sort((a, b) => a.id - b.id);
-            } else if (action.payload === 'D') {
-            sortCharacters.sort((a, b) => b.id - a.id);
-            }
-            return {
-                ...state,
-                myFavorites: [...sortCharacters]
-            };
-            
-
-        default:
-            return {
-                ...state
-            }
-    }
-
-}
-
-export default reducer;
+export default rootReducer;
