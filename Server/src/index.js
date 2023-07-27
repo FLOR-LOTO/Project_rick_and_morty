@@ -1,49 +1,34 @@
-const http = require("http");
-const characters = require('./utils/data.js');
+const express = require("express");
+const server = express();
+
+const router = require("./routes/index");
+const morgan = require("morgan");
+const cors = require("cors");
 
 const PORT = 3001;
-http.createServer((req, res) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-// en nuestra app tenemos dos rutas =    /character/:id     /characters/:id
-const urlSplit = req.url.split("/")  // Aca separo por las barras
-const pos1 = urlSplit[1]  // rickandmorty
-const pos2 = urlSplit[2]  //character o characters
-const id = urlSplit[3]    // id
-if (pos1 === "rickandmorty" && pos2 === "characters") { // esto es porque tenemos una ruta con todos los characters y otra con cada personaje (character)
-    res.writeHead(200, {"Content-type":"application/json"})
-    return res.end(JSON.stringify(characters));
-}
-if (pos1 === "rickandmorty" && pos2 === "character") {  //esta es la ruta del ID character/:id 
-    const character = characters.find((charact) => {
-        return charact.id === Number(id);
-    })
-    if (character){
-    res.writeHead(200, {"Content-type":"application/json"})
-    return res.end(JSON.stringify(character));
-    }
-    return res.writeHead(404, {"Content-type":"text/plain"}).end("Not Found!");
-}
-}).listen (PORT, "localhost");   
 
+server.use(cors())
 
+server.use(morgan("dev")) // si no especifico la ruta se lo asigna a todas
 
+server.use((req, res, next) => {  //configuracion del CORS
+    res.header('Access-Control-Allow-Origin', '*'); //acceso a todos (api publica)
+    res.header('Access-Control-Allow-Credentials', 'true'); // envio de cookies y credenciales
+    res.header(
+        'Access-Control-Allow-Headers', //permite a los dos anteriores
+        'Origin, X-Requested-With, Content-Type, Accept'
+    );
+    res.header(
+        'Access-Control-Allow-Methods',  //permite los metodos
+        'GET, POST, OPTIONS, PUT, DELETE'
+    );
+    next();
+});
 
+server.use(express.json()) //nos sirve para post que utiliza el body
 
+server.use('/rickandmorty', router)
 
-// console.log(req)
-// res.setHeader('Access-Control-Allow-Origin', '*');
-// const {url} = req;
-
-// if (url === "/") {
-//     res.writeHead(200, { "Content-Type": "text/plain" });
-//     res.end("Welcome to the Rick and Morty API")}
-
-// else if(url.includes("/rickandmorty/character")){
-//     const idCharacter = url.split('/').pop(); // dividimos en las barras con .split y .pop elimina y devuelve el ultimo elemento, esto se guarda.
-//     const character = characters.find(char => char.id === Number(idCharacter));
-
-//     res.writeHead(200, { "Content-Type":"application/json" })
-//     return res.end (JSON.stringify(character))
-// } 
-//     res.writeHead(404);
-//     res.end('Error');
+server.listen(PORT, () => {
+    console.log(`Server raised in port: ${PORT}`);
+}); 
