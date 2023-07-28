@@ -37,37 +37,37 @@ const [ characters, setCharacters] = useState ([]);
 
 const {pathname} = useLocation();  //usamos useLocation para esconder la nav condicionalmenmte
 
-// const onSearch = async (id) => {
-//    try{
-//       const { data } = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
-//          if (data.name) {
-//             const characterExists = characters.some(
-//             (character) => character.id === data.id
-//             );
+const onSearch = async (id) => {
+   try{
+      const { data } = await axios(`http://localhost:3001/rickandmorty/character/${id}`)
+         if (data.name) {
+            const characterExists = characters.some(
+            (character) => character.id === data.id
+            );
    
-//          if (!characterExists) {
-//             setCharacters([...characters, data]);
-//             } else {
-//             window.alert('¡Este personaje ya se encuentra en la lista!');
-//             }
-//          }
-//    } catch(error){
-//       window.alert(error.message);
-//    };
-// };
+         if (!characterExists) {
+            setCharacters([...characters, data]);
+            } else {
+            window.alert('¡Este personaje ya se encuentra en la lista!');
+            }
+         }
+   } catch(error){
+      window.alert(error.message);
+   };
+};
 
-async function onSearch(id) {
-   try {
-     const { data } = await axios(
-       `http://localhost:3001/rickandmorty/character/${id}`
-     );
-     if (data.name) {
-       setCharacters((oldChars) => [...oldChars, data]);
-     }
-   } catch (error) {
-     window.alert(error.message);
-   }
- }
+// async function onSearch(id) {
+// try {
+//    const { data } = await axios(
+//       `http://localhost:3001/rickandmorty/character/${id}`
+//    );
+//    if (data.name) {
+//       setCharacters((oldChars) => [...oldChars, data]);
+//    }
+// } catch (error) {
+//    window.alert(error.message);
+// }
+// }
 
 const onClose = (id) => {
    const filteredCharacters = characters.filter((character) => character.id !== parseInt(id)
