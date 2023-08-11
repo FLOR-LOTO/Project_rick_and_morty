@@ -1,30 +1,26 @@
+const router = require('./routes');
 const express = require("express");
 const server = express();
-
-const router = require("./routes/index");
 const morgan = require("morgan");
-const cors = require("cors");
 
-server.use(cors())
+server.use(morgan('dev'));
 
-server.use(morgan("dev")) // si no especifico la ruta se lo asigna a todas
-
-server.use((req, res, next) => {  //configuracion del CORS
-    res.header('Access-Control-Allow-Origin', '*'); //acceso a todos (api publica)
-    res.header('Access-Control-Allow-Credentials', 'true'); // envio de cookies y credenciales
+server.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Credentials', 'true');
     res.header(
-        'Access-Control-Allow-Headers', //permite a los dos anteriores
+        'Access-Control-Allow-Headers',
         'Origin, X-Requested-With, Content-Type, Accept'
     );
     res.header(
-        'Access-Control-Allow-Methods',  //permite los metodos
+        'Access-Control-Allow-Methods',
         'GET, POST, OPTIONS, PUT, DELETE'
     );
     next();
 });
 
-server.use(express.json()) //nos sirve para post que utiliza el body
+server.use(express.json());
 
-server.use('/rickandmorty', router)
+server.use("/rickandmorty", router);
 
 module.exports = server;

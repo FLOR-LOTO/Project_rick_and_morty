@@ -1,14 +1,25 @@
-const users = require('../utils/users')
+const users = require("../utils/users");
 
 const login = (req, res) => {
-    const { email, password } = req.query;
+  const { email, password } = req.query;
+  const USER = users.find(
+    (usuario) =>
+      usuario.email === email &&
+      usuario.password === password
+  );
 
-    let access = false;
+  if (USER) {
+    return res.status(200).json({ access: true });
+  } else {
+    return res.status(403).json({ error: "Invalid credentials" });
+  }
+};
 
-    users.forEach((user) => {
-        if(user.email === email && user.password === password) access = true;
-    })
-    return res.status(200).json({access})
-}
+module.exports = login;
 
-module.exports = login;     
+
+
+
+
+
+

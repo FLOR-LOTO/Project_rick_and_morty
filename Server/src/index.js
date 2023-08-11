@@ -1,5 +1,4 @@
-const express = require("express");
-const server = express();
+const server = require ('./app');
 
 const PORT = 3001;
 
