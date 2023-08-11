@@ -1,0 +1,10 @@
+.container{
+    display: inline-block;
+    flex: 0 0 16%;
+    border: 5px solid #46f666;
+    padding: 8px;
+    margin: 20px;
+    border-radius: 0.8em;
+    /* background-color: #23263A; */
+    background-color: rgba(229, 75, 115, 0.7); 
+}

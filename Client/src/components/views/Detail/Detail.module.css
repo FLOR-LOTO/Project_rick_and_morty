@@ -1,11 +1,28 @@
-.detail{
-        display: inline-block;
-        flex: 0 0 16%;
-        padding: 8px;
-        margin: 20px;
-        text-decoration: none;
-    }
+.container {
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: rgba(75, 71, 72, 0.7);
+}
 
+.content {
+display: flex;
+align-items: center;
+}
+
+.imageContainer {
+flex: 1;
+padding: 30px;
+}
+
+.textContainer {
+flex: 2;
+padding: 60px;
+}
+.description{
+    font-size: larger;
+}
 .img {
-    border-radius: 15px;
+border-radius: 15px;
+max-width: 100%;
 }

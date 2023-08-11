@@ -19,17 +19,23 @@ function Detail() {
     }, [id]);  // como dependencia usa el id
 
 
-    return (
-    <div className= {style.detail}>
-        {character.name && (  // este condicional dice, si existe el personaje.name se renderiza el resto
-            <div>
-                {character.name && <h1>{character.name}</h1>}  {/*es este condicional decimos que si tiene ese dato se renderice*/}
-                {character.image && <img className= {style.img} src= {character.image} alt={character.name} />}
-                {character.species && <h2>Specie: {character.species}</h2>}
-                {character.status && <h2>Status: {character.status}</h2>}
-                {character.gender && <h2>Gender: {character.gender}</h2>}
-                {character.origin && <h2>Origin: {character.origin.name}</h2>}
+return (
+    <div className={style.container}>
+        {character.name && (
+        <div className={style.content}>
+            <div className={style.imageContainer}>
+            {character.image && (
+                <img className={style.img} src={character.image} alt={character.name} />
+            )}
             </div>
+            <div className={style.textContainer}>
+            {character.name && <h1>{character.name}</h1>}
+            {character.species && <h2 className={style.description}>Specie: {character.species}</h2>}
+            {character.status && <h2 className={style.description}>Status: {character.status}</h2>}
+            {character.gender && <h2 className={style.description}>Gender: {character.gender}</h2>}
+            {character.origin && <h2 className={style.description}>Origin: {character.origin}</h2>}
+            </div>
+        </div>
         )}
     </div>
     );

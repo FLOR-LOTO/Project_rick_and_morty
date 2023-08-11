@@ -21,10 +21,10 @@ const login = async (userData) => {
    try {
       const { data } = await axios(URL + `?email=${email}&password=${password}`)
          const { access } = data;
-         setAccess(data);
+         setAccess(access);
          access && navigate('/home');
       } catch(error) {
-         window.alert(error.message);
+         window.alert('error');
       }
    }
 
@@ -56,18 +56,6 @@ const onSearch = async (id) => {
    };
 };
 
-// async function onSearch(id) {
-// try {
-//    const { data } = await axios(
-//       `http://localhost:3001/rickandmorty/character/${id}`
-//    );
-//    if (data.name) {
-//       setCharacters((oldChars) => [...oldChars, data]);
-//    }
-// } catch (error) {
-//    window.alert(error.message);
-// }
-// }
 
 const onClose = (id) => {
    const filteredCharacters = characters.filter((character) => character.id !== parseInt(id)
@@ -75,22 +63,6 @@ const onClose = (id) => {
    setCharacters(filteredCharacters);
 };
 
-
-// const addRandomCharacter = () => {
-//    axios.get("http://localhost:3001/rickandmorty/characters")
-//       .then(({ data }) => {
-//          const randomCharacter = data[Math.floor(Math.random() * data.length)];
-//          const characterExists = characters.some(character => character.id === randomCharacter.id);
-//          if (!characterExists) {
-//             setCharacters([...characters, randomCharacter]);
-//          } else {
-//             window.alert('¡Este personaje ya se encuentra en la lista!');
-//          }
-//       })
-//       .catch(error => {
-//          console.error('Error:', error);
-//       });
-// };
 
 const getContainerClass = () => {
 if (pathname === '/') {
